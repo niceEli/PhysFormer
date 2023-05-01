@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 public class RigidbodyMovement : MonoBehaviour
 {
 	public Rigidbody2D rigidbodys; // The Rigidbody component that you want to move
-	public float speed = 0.1f; // The speed at which the Rigidbody should move
-	public float jumpForce = 10f; // The force with which the Rigidbody should jump
+	public float speed = 0.2f; // The speed at which the Rigidbody should move
+	public float jumpForce = 7f; // The force with which the Rigidbody should jump
+	public float dashForce = 7f; // the for whith which the Rigidbody should dash
 	public LayerMask groundLayers; // The layers that should be considered as ground for the purpose of jumping
 	public float maxforce;
 	public float friction;
@@ -14,6 +15,7 @@ public class RigidbodyMovement : MonoBehaviour
 	public SpriteRenderer charIcon;
 
 	private bool isGrounded; // Whether the Rigidbody is currently grounded
+	private float Grounded;
 	private float jumpTime;
 	private float jT;
 
@@ -39,6 +41,7 @@ public class RigidbodyMovement : MonoBehaviour
 
 		if (isGrounded)
 		{
+			Grounded = 1;
 			rigidbodys.velocity += new Vector2(velocity.x, 0);
 			//rigidbodys.velocity = new Vector2(rigidbodys.velocity.x * friction, rigidbodys.velocity.y);
 			rigidbodys.velocity = new Vector2(Mathf.Clamp(rigidbodys.velocity.x, -maxforce, maxforce), rigidbodys.velocity.y);
@@ -84,6 +87,21 @@ public class RigidbodyMovement : MonoBehaviour
 		if (Input.GetButtonDown("Reset"))
 		{
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+		if (Input.GetButtonDown("Dash"))
+		{
+			if (jT <= jumpTime - 5)
+			{
+				if (Grounded != 0)
+				{
+					if (Input.GetAxisRaw("Horizontal") != 0)
+					{
+						rigidbodys.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * dashForce, dashForce / 2);
+						Grounded--;
+						jT = jumpTime;
+					}
+				}
+			}
 		}
 	}
 }
