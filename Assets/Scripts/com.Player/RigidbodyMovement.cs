@@ -9,13 +9,15 @@ public class RigidbodyMovement : MonoBehaviour
 	public LayerMask groundLayers; // The layers that should be considered as ground for the purpose of jumping
 	public float maxforce;
 	public float friction;
+	public float stopFriction;
+	public float scale;
 
 	private bool isGrounded; // Whether the Rigidbody is currently grounded
 
 	void FixedUpdate ()
 	{
 		// Check if the Rigidbody is grounded
-		isGrounded = Physics2D.OverlapCircle(new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), 0.45f, groundLayers);
+		isGrounded = Physics2D.OverlapCircle(new Vector3(transform.position.x, transform.position.y - scale+0.5f, transform.position.z), 0.45f, groundLayers);
 
 		// Get input from the horizontal axis (left and right arrow keys or A and D keys)
 		float horizontalInput = Input.GetAxis("Horizontal");
@@ -37,11 +39,17 @@ public class RigidbodyMovement : MonoBehaviour
 			rigidbodys.velocity += new Vector2(velocity.x, 0);
 			//rigidbodys.velocity = new Vector2(rigidbodys.velocity.x * friction, rigidbodys.velocity.y);
 			rigidbodys.velocity = new Vector2(Mathf.Clamp(rigidbodys.velocity.x, -maxforce, maxforce), rigidbodys.velocity.y);
+			if (Input.GetAxisRaw("Horizontal") == 0)
+			{
+				rigidbodys.velocity = new Vector2(rigidbodys.velocity.x / stopFriction, rigidbodys.velocity.y);
+			}
 		}
 		else
 		{
 			//rigidbodys.velocity = new Vector2(Mathf.Clamp(rigidbodys.velocity.x, -maxforce*2, maxforce*2), rigidbodys.velocity.y);
 		}
+
+		
 
 	}
 	private void Update ()
