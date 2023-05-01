@@ -96,7 +96,14 @@ public class RigidbodyMovement : MonoBehaviour
 				{
 					if (Input.GetAxisRaw("Horizontal") != 0)
 					{
-						rigidbodys.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * dashForce, dashForce / 2);
+						if (isGrounded)
+						{
+							rigidbodys.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * dashForce, rigidbodys.velocity.y);
+						}
+                        else
+                        {
+							rigidbodys.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * dashForce, dashForce / 2);
+						}
 						Grounded--;
 						jT = jumpTime;
 					}
