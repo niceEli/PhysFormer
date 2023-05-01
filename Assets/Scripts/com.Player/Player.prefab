@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbodys: {fileID: 9193288808815312357}
-  speed: 0.1
+  speed: 0.2
   jumpForce: 10
   groundLayers:
     serializedVersion: 2
@@ -452,5 +452,5 @@ Transform:
   - {fileID: 689351347258960321}
   - {fileID: 9032406763161889694}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
