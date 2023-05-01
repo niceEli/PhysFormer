@@ -13,11 +13,13 @@ public class RigidbodyMovement : MonoBehaviour
 	public float scale;
 
 	private bool isGrounded; // Whether the Rigidbody is currently grounded
+	private float jumpTime;
+	private float jT;
 
-	void FixedUpdate ()
+	void FixedUpdate()
 	{
 		// Check if the Rigidbody is grounded
-		isGrounded = Physics2D.OverlapCircle(new Vector3(transform.position.x, transform.position.y - scale+0.5f, transform.position.z), 0.45f, groundLayers);
+		isGrounded = Physics2D.OverlapCircle(new Vector3(transform.position.x, transform.position.y - scale + 0.5f, transform.position.z), 0.45f, groundLayers);
 
 		// Get input from the horizontal axis (left and right arrow keys or A and D keys)
 		float horizontalInput = Input.GetAxis("Horizontal");
@@ -49,21 +51,25 @@ public class RigidbodyMovement : MonoBehaviour
 			//rigidbodys.velocity = new Vector2(Mathf.Clamp(rigidbodys.velocity.x, -maxforce*2, maxforce*2), rigidbodys.velocity.y);
 		}
 
-		
 
+		jumpTime++;
 	}
-	private void Update ()
+	private void Update()
 	{
 
 		// If the space bar is pressed and the Rigidbody is grounded, add a force to make it jump
-		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetButtonDown("Jump"))
 		{
-			if (isGrounded)
+			if (jT <= jumpTime - 5)
 			{
-				rigidbodys.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+				if (isGrounded)
+				{
+					rigidbodys.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+					jT = jumpTime;
+				}
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.R))
+		if (Input.GetButtonDown("Reset"))
 		{
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		}
