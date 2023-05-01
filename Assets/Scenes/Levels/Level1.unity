@@ -447,6 +447,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2395275507366809623, guid: 94434fdf0be2a4e38afd99f32ba61983, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395275507366809623, guid: 94434fdf0be2a4e38afd99f32ba61983, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395275507366809623, guid: 94434fdf0be2a4e38afd99f32ba61983, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395275507366809623, guid: 94434fdf0be2a4e38afd99f32ba61983, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395275507366809623, guid: 94434fdf0be2a4e38afd99f32ba61983, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395275507366809623, guid: 94434fdf0be2a4e38afd99f32ba61983, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5577883087093152256, guid: 94434fdf0be2a4e38afd99f32ba61983, type: 3}
       propertyPath: m_RootOrder
       value: 2

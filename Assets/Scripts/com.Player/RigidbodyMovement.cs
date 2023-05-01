@@ -11,6 +11,7 @@ public class RigidbodyMovement : MonoBehaviour
 	public float friction;
 	public float stopFriction;
 	public float scale;
+	public SpriteRenderer charIcon;
 
 	private bool isGrounded; // Whether the Rigidbody is currently grounded
 	private float jumpTime;
@@ -45,6 +46,17 @@ public class RigidbodyMovement : MonoBehaviour
 			{
 				rigidbodys.velocity = new Vector2(rigidbodys.velocity.x / stopFriction, rigidbodys.velocity.y);
 			}
+			if (rigidbodys.velocity.x != 0)
+            {
+				if (rigidbodys.velocity.x > 0)
+                {
+					charIcon.flipX = false;
+                }
+                else
+                {
+					charIcon.flipX = true;
+                }
+            }
 		}
 		else
 		{
