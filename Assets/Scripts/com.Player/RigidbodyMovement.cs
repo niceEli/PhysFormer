@@ -63,6 +63,7 @@ public class RigidbodyMovement : MonoBehaviour
 		}
 		else
 		{
+			rigidbodys.velocity += new Vector2(velocity.x/5, 0);
 			//rigidbodys.velocity = new Vector2(Mathf.Clamp(rigidbodys.velocity.x, -maxforce*2, maxforce*2), rigidbodys.velocity.y);
 		}
 
