@@ -5,8 +5,8 @@ public class RigidbodyMovement : MonoBehaviour
 {
 	public Rigidbody2D rigidbodys; // The Rigidbody component that you want to move
 	public float speed = 0.2f; // The speed at which the Rigidbody should move
-	public float jumpForce = 7f; // The force with which the Rigidbody should jump
-	public float dashForce = 7f; // the for whith which the Rigidbody should dash
+	public float jumpForce = 10f; // The force with which the Rigidbody should jump
+	public float dashForce = 10f; // the for whith which the Rigidbody should dash
 	public LayerMask groundLayers; // The layers that should be considered as ground for the purpose of jumping
 	public float maxforce;
 	public float friction;

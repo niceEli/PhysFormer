@@ -101,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbodys: {fileID: 9193288808815312357}
   speed: 0.2
-  jumpForce: 7
-  dashForce: 7
+  jumpForce: 10
+  dashForce: 10
   groundLayers:
     serializedVersion: 2
     m_Bits: 1
@@ -172,7 +172,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.82
 --- !u!1 &7858476071000200757
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +403,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1.82, y: 1.82}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
