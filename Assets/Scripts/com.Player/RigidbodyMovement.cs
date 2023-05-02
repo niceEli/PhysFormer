@@ -5,8 +5,8 @@ public class RigidbodyMovement : MonoBehaviour
 {
 	public Rigidbody2D rigidbodys; // The Rigidbody component that you want to move
 	public float speed = 0.2f; // The speed at which the Rigidbody should move
-	public float jumpForce = 10f; // The force with which the Rigidbody should jump
-	public float dashForce = 10f; // the for whith which the Rigidbody should dash
+	public float jumpForce = 8f; // The force with which the Rigidbody should jump
+	public float dashForce = 8f; // the for whith which the Rigidbody should dash
 	public LayerMask groundLayers; // The layers that should be considered as ground for the purpose of jumping
 	public float maxforce;
 	public float friction;
@@ -22,7 +22,7 @@ public class RigidbodyMovement : MonoBehaviour
 	void FixedUpdate()
 	{
 		// Check if the Rigidbody is grounded
-		isGrounded = Physics2D.OverlapCircle(new Vector3(transform.position.x, transform.position.y - scale + 0.5f, transform.position.z), 0.45f, groundLayers);
+		isGrounded = Physics2D.OverlapCircle(new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), scale, groundLayers);
 
 		// Get input from the horizontal axis (left and right arrow keys or A and D keys)
 		float horizontalInput = Input.GetAxis("Horizontal");
@@ -38,7 +38,17 @@ public class RigidbodyMovement : MonoBehaviour
 
 		// Set the Rigidbody's velocity
 		//rigidbodys.velocity += new Vector2(velocity.x, 0);
-
+		if (((int)rigidbodys.velocity.x*2) != 0)
+            {
+				if (((int)rigidbodys.velocity.x*2) > 0)
+                {
+					charIcon.flipX = false;
+                }
+                else
+                {
+					charIcon.flipX = true;
+                }
+            }
 		if (isGrounded)
 		{
 			Grounded = 1;
@@ -49,17 +59,7 @@ public class RigidbodyMovement : MonoBehaviour
 			{
 				rigidbodys.velocity = new Vector2(rigidbodys.velocity.x / stopFriction, rigidbodys.velocity.y);
 			}
-			if (rigidbodys.velocity.x != 0)
-            {
-				if (rigidbodys.velocity.x > 0)
-                {
-					charIcon.flipX = false;
-                }
-                else
-                {
-					charIcon.flipX = true;
-                }
-            }
+			
 		}
 		else
 		{
