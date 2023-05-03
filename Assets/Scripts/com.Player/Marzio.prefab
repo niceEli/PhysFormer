@@ -432,7 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5577883087093152256}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Marzio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
