@@ -16,6 +16,7 @@ public class DestroyEnemy : MonoBehaviour
             Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
             RigidbodyMovement playerM = collision.GetComponent<RigidbodyMovement>();
             playerRb.velocity = new Vector2(playerRb.velocity.x, playerM.jumpForce);
+            playerM.Grounded = 1;
             // Destroy the object that this script is attached to
             Destroy(gotd);
         }

@@ -16,7 +16,7 @@ public class RigidbodyMovement : MonoBehaviour
 	public SpriteRenderer charIcon;
 
 	private bool isGrounded; // Whether the Rigidbody is currently grounded
-	private float Grounded;
+	[HideInInspector]public float Grounded;
 	private float jumpTime;
 	private float jT;
 
