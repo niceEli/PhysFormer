@@ -169,6 +169,8 @@ MonoBehaviour:
 
     Quincy
 
+    Alex
+
     Luca
 
     Evan
@@ -176,8 +178,6 @@ MonoBehaviour:
     Kyle
 
     Ayden
-
-    Maddie
 
     Cameron
 
@@ -683,7 +683,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   delay: 1
-  duration: 60
+  duration: 55
   easeType: 1
   easeCurve:
     serializedVersion: 2
@@ -730,22 +730,22 @@ MonoBehaviour:
   tweenRigidbody: 0
   wps:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: -60, z: 0}
+  - {x: 0, y: -55, z: 0}
   fullWps: []
   path:
     wpLengths:
     - 0
     - 0
-    - 60
+    - 55
     wps:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    - {x: 0, y: -60, z: 0}
+    - {x: 0, y: -55, z: 0}
     type: 0
     subdivisionsXSegment: 10
     subdivisions: 30
     controlPoints: []
-    length: 60
+    length: 55
     isFinalized: 1
     timesTable:
     - 0
